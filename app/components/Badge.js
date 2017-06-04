@@ -27,3 +27,11 @@ Badge.propTypes = {
   username: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired
 }
+
+
+
+// Badge.propTypes = {
+//   list: PropTypes.arrayOf(PropTypes.shape({
+//     name: PropTypes.string.isRequired,
+//     friend: PropTypes.bool.isRequired
+// }
