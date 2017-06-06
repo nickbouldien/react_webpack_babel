@@ -3,6 +3,7 @@ var React = require('react');
 var ReactRouter = require('react-router-dom');
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
+var Switch = ReactRouter.Switch;
 var ReactDOM = require('react-dom');
 var PropTypes = require('prop-types');
 require('./index.css');
@@ -16,11 +17,15 @@ class App extends React.Component {
     return (
       <Router>
         <div className="container">
-          <h1>hello</h1>
           <Nav />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/popular" component={Popular} />
-          <Route exact path="/battle" component={Battle} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/popular" component={Popular} />
+            <Route exact path="/battle" component={Battle} />
+            <Route render={function(){
+              return <p>404... Page Not Found</p>
+            }} />
+          </Switch>
 
         </div>
 
