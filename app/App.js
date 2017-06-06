@@ -6,25 +6,21 @@ var Route = ReactRouter.Route;
 var ReactDOM = require('react-dom');
 var PropTypes = require('prop-types');
 require('./index.css');
-import Badge from './components/Badge';
 import Popular from './components/Popular';
-// import Nav from './components/Nav';
-var Nav = require('./components/Nav')
+import Home from './components/Home';
+var Nav = require('./components/Nav');
+var Battle = require('./components/Battle')
 
 class App extends React.Component {
   render() {
     return (
       <Router>
         <div className="container">
-
+          <h1>hello</h1>
           <Nav />
+          <Route exact path="/" component={Home} />
           <Route exact path="/popular" component={Popular} />
-
-          {/* <Badge
-            name="nick"
-            username="utvol"
-            img="image.png"
-          /> */}
+          <Route exact path="/battle" component={Battle} />
 
         </div>
 
