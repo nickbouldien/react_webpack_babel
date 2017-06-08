@@ -9,6 +9,7 @@ var PropTypes = require('prop-types');
 require('./index.css');
 import Popular from './components/Popular';
 import Home from './components/Home';
+import Results from './components/Results';
 var Nav = require('./components/Nav');
 var Battle = require('./components/Battle')
 
@@ -22,6 +23,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/popular" component={Popular} />
             <Route exact path="/battle" component={Battle} />
+            <Route path="/battle/results" component={Results} />
             <Route render={function(){
               return <p>404... Page Not Found</p>
             }} />
