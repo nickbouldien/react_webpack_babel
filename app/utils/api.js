@@ -1,31 +1,32 @@
-var axios = require('axios')
+var axios = require('axios');
 
 var id = "YOUR_CLIENT_ID";
 var sec = "YOUR_SECRET_ID";
 var params = "?client_id=" + id + "&client_secret=" + sec;
 
 function getProfile(username){
-  return axios.get('https://api.github.com/users/' + username + params
+  return axios.get('https://api.github.com/users/' + username + params)
     .then(function(user){
       return user.data;
     })
 }
 
 function getRepos(username){
-  return axios.get('https://api.github.com/users/' + username + '/repos' + params + '&per_page=100'
+  return axios.get('https://api.github.com/users/' + username + '/repos' + params + '&per_page=100')
     .then(function(user){
       return user.data;
     })
 }
 
 function getStarCount(repos){
-  return repos.data.reduce(function (count, repo) {
+  return repos.reduce(function (count, repo) {
     return count + repo.stargazers_count;
   }, 0)
 }
 
 function calculateScore(profile, repos){
   var followers = profile.followers;
+  // console.log('repos', repos);
   var totalStars = getStarCount(repos);
 
   return (followers * 3) + totalStars;
@@ -62,11 +63,11 @@ function sortPlayers(players){
 //
 //   })
 
-
-api.battle(['nick', 'ean'])
-  .then(function(players){
-    players[0]
-  })
+//
+// api.battle(['nick', 'ean'])
+//   .then(function(players){
+//     players[0]
+//   })
 
 module.exports = {
   battle: function(players) {
